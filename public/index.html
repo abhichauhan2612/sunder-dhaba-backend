@@ -1,1 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunder Dhaba - Veg & Non-Veg Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --primary-color: #d32f2f;
+            --primary-dark: #b71c1c;
+            --accent-color: #ff9800;
+            --dark-color: #212121;
+            --light-color: #f9f9f9;
+            --white: #ffffff;
+            --gray: #757575;
+            --border-color: #e0e0e0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .navbar {
+            background-color: var(--white);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-order {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-order:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #ff5252;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--border-color);
+            transform: translateY(-2px);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: var(--light-color);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-item {
+            background-color: var(--light-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+        }
+
+        .item-details h3 {
+            font-size: 1.25rem;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .item-prices {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+        }
+
+        .price {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+
+        .about-container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-box {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-box h4 {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 20px 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-col p, .footer-col ul {
+            font-size: 0.95rem;
+            color: #bdbdbd;
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #bdbdbd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #424242;
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: #9e9e9e;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .top-bar .container {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone-alt"></i> Call Us: <a href="tel:9717118890">9717118890</a>, <a href="tel:9217165828">9217165828</a></span>
+                </div>
+                <div class="timing">
+                    <span><i class="fas fa-clock"></i> Open Daily: 11:00 AM - 11:00 PM</span>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="#" class="logo">SUNDER DHABA</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="order-btn-container">
+                    <a href="#menu" class="btn-order">Order Now</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>SUNDER DHABA</h1>
+            <p class="tagline">Authentic Veg & Non-Veg Delicacies Crafted with Tradition</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">Explore Menu</a>
+                <a href="tel:9717118890" class="btn btn-secondary"><i class="fas fa-phone"></i> Call to Order</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Delicious Menu</h2>
+                <p>Explore our wide range of authentic North Indian Veg & Non-Veg items</p>
+            </div>
+
+            <!-- Menu Category Tabs -->
+            <div class="menu-tabs">
+                <button class="tab-btn active" data-category="all">All Items</button>
+                <button class="tab-btn" data-category="paneer">Paneer Gravies</button>
+                <button class="tab-btn" data-category="chaap">Chaap Items</button>
+                <button class="tab-btn" data-category="chicken">Non-Veg Gravies</button>
+                <button class="tab-btn" data-category="starters">Starters</button>
+                <button class="tab-btn" data-category="rice">Rice & Breads</button>
+                <button class="tab-btn" data-category="thali">Thalis & Combos</button>
+            </div>
+
+            <!-- Menu Grid Container -->
+            <div class="menu-grid">
+                <!-- Paneer Gravies -->
+                <div class="menu-item" data-category="paneer">
+                    <div class="item-details">
+                        <h3>Matar Paneer</h3>
+                        <p class="item-desc">Fresh green peas and paneer in rich tomato gravy</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹149</span>
+                        <span class="price">H: ₹249</span>
+                        <span class="price">F: ₹349</span>
+                        <span class="price">1500ml: ₹699</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="paneer">
+                    <div class="item-details">
+                        <h3>Shahi Paneer</h3>
+                        <p class="item-desc">Royal creamy cottage cheese preparation</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹149</span>
+                        <span class="price">H: ₹249</span>
+                        <span class="price">F: ₹349</span>
+                        <span class="price">1500ml: ₹699</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="paneer">
+                    <div class="item-details">
+                        <h3>Kadhai Paneer</h3>
+                        <p class="item-desc">Spicy paneer cooked with capsicum and freshly ground spices</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹149</span>
+                        <span class="price">H: ₹249</span>
+                        <span class="price">F: ₹349</span>
+                        <span class="price">1500ml: ₹699</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="paneer">
+                    <div class="item-details">
+                        <h3>Palak Paneer</h3>
+                        <p class="item-desc">Smooth and flavorful spinach gravy with cottage cheese</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹149</span>
+                        <span class="price">H: ₹249</span>
+                        <span class="price">F: ₹349</span>
+                        <span class="price">1500ml: ₹699</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="paneer">
+                    <div class="item-details">
+                        <h3>Paneer Lababdar</h3>
+                        <p class="item-desc">Cottage cheese in rich, creamy, tomato-onion gravy</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹149</span>
+                        <span class="price">H: ₹249</span>
+                        <span class="price">F: ₹349</span>
+                        <span class="price">1500ml: ₹699</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="paneer">
+                    <div class="item-details">
+                        <h3>Paneer Butter Masala</h3>
+                        <p class="item-desc">Classic buttery, mildly sweet tomato gravy with soft paneer</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹149</span>
+                        <span class="price">H: ₹249</span>
+                        <span class="price">F: ₹349</span>
+                        <span class="price">1500ml: ₹699</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="paneer">
+                    <div class="item-details">
+                        <h3>Paneer Do Pyaza</h3>
+                        <p class="item-desc">Paneer cooked with generous amount of onions and spices</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹159</span>
+                        <span class="price">H: ₹259</span>
+                        <span class="price">F: ₹359</span>
+                        <span class="price">1500ml: ₹709</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="paneer">
+                    <div class="item-details">
+                        <h3>Tawa Paneer</h3>
+                        <p class="item-desc">Semi-dry spiced paneer preparation cooked on tawa</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹159</span>
+                        <span class="price">H: ₹259</span>
+                        <span class="price">F: ₹359</span>
+                        <span class="price">1500ml: ₹709</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="paneer">
+                    <div class="item-details">
+                        <h3>Paneer Bhurji</h3>
+                        <p class="item-desc">Scrambled cottage cheese with onions, tomatoes and green chillies</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹199</span>
+                        <span class="price">H: ₹299</span>
+                        <span class="price">F: ₹399</span>
+                        <span class="price">1500ml: ₹799</span>
+                    </div>
+                </div>
+
+                <!-- Chaap Items -->
+                <div class="menu-item" data-category="chaap">
+                    <div class="item-details">
+                        <h3>Chaap Masala</h3>
+                        <p class="item-desc">Juicy soya chaap cooked in thick dhaba-style masala gravy</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹159</span>
+                        <span class="price">H: ₹259</span>
+                        <span class="price">F: ₹359</span>
+                        <span class="price">1500ml: ₹709</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="chaap">
+                    <div class="item-details">
+                        <h3>Kadhai Chaap</h3>
+                        <p class="item-desc">Soya chaap tossed with capsicum, onions and freshly ground spices</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹159</span>
+                        <span class="price">H: ₹259</span>
+                        <span class="price">F: ₹359</span>
+                        <span class="price">1500ml: ₹709</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="chaap">
+                    <div class="item-details">
+                        <h3>Chaap Lababdar</h3>
+                        <p class="item-desc">Rich and velvety soya chaap delicacy</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹169</span>
+                        <span class="price">H: ₹269</span>
+                        <span class="price">F: ₹369</span>
+                        <span class="price">1500ml: ₹719</span>
+                    </div>
+                </div>
+
+                <!-- Chicken & Non-Veg Gravies -->
+                <div class="menu-item" data-category="chicken">
+                    <div class="item-details">
+                        <h3>Butter Chicken</h3>
+                        <p class="item-desc">Tender chicken in rich, creamy tomato and butter gravy</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹249</span>
+                        <span class="price">H: ₹429</span>
+                        <span class="price">F: ₹719</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="chicken">
+                    <div class="item-details">
+                        <h3>Kadhai Chicken</h3>
+                        <p class="item-desc">Spicy chicken preparation with bell peppers and whole spices</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹249</span>
+                        <span class="price">H: ₹429</span>
+                        <span class="price">F: ₹719</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="chicken">
+                    <div class="item-details">
+                        <h3>Chicken Rara</h3>
+                        <p class="item-desc">Chicken pieces cooked with spicy minced meat gravy</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹269</span>
+                        <span class="price">H: ₹449</span>
+                        <span class="price">F: ₹719</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="chicken">
+                    <div class="item-details">
+                        <h3>Tawa Chicken</h3>
+                        <p class="item-desc">Semi-dry chicken roasted on hot iron tawa</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹249</span>
+                        <span class="price">H: ₹429</span>
+                        <span class="price">F: ₹719</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="chicken">
+                    <div class="item-details">
+                        <h3>Chicken Lababdar</h3>
+                        <p class="item-desc">Rich and creamy North Indian style chicken gravy</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹269</span>
+                        <span class="price">H: ₹449</span>
+                        <span class="price">F: ₹719</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="chicken">
+                    <div class="item-details">
+                        <h3>Chicken Do Pyaza</h3>
+                        <p class="item-desc">Chicken cooked with abundant crisp onions and aromatic spices</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">Q: ₹269</span>
+                        <span class="price">H: ₹449</span>
+                        <span class="price">F: ₹719</span>
+                    </div>
+                </div>
+
+                <!-- Starters -->
+                <div class="menu-item" data-category="starters">
+                    <div class="item-details">
+                        <h3>Tandoori Chicken</h3>
+                        <p class="item-desc">Classic charcoal-grilled chicken marinated in yogurt and spices</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">H: ₹239</span>
+                        <span class="price">F: ₹429</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="starters">
+                    <div class="item-details">
+                        <h3>Afghani Chicken</h3>
+                        <p class="item-desc">Creamy, mild, and succulent grilled chicken</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">H: ₹239</span>
+                        <span class="price">F: ₹429</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="starters">
+                    <div class="item-details">
+                        <h3>Chicken Tikka</h3>
+                        <p class="item-desc">Boneless chicken chunks grilled in tandoor</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">H: ₹209</span>
+                        <span class="price">F: ₹389</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="starters">
+                    <div class="item-details">
+                        <h3>Malai Chaap (Veg Starter)</h3>
+                        <p class="item-desc">Tender soya chaap marinated in cream, cheese and mild spices</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">H: ₹109</span>
+                        <span class="price">F: ₹199</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="starters">
+                    <div class="item-details">
+                        <h3>Paneer Tikka (Veg Starter)</h3>
+                        <p class="item-desc">Marinated cottage cheese cubes charred to perfection</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">H: ₹109</span>
+                        <span class="price">F: ₹199</span>
+                    </div>
+                </div>
+
+                <!-- Rice & Breads -->
+                <div class="menu-item" data-category="rice">
+                    <div class="item-details">
+                        <h3>Plain Rice / Jeera Rice</h3>
+                        <p class="item-desc">Steamed basmati rice / cumin tempered rice</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">₹70 - ₹140</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="rice">
+                    <div class="item-details">
+                        <h3>Tandoori Roti / Butter Roti</h3>
+                        <p class="item-desc">Freshly baked whole wheat bread</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">₹11 - ₹13</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="rice">
+                    <div class="item-details">
+                        <h3>Butter Naan / Plain Naan</h3>
+                        <p class="item-desc">Soft refined flour bread baked in tandoor</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">₹20 - ₹25</span>
+                    </div>
+                </div>
+
+                <!-- Thalis & Combos -->
+                <div class="menu-item" data-category="thali">
+                    <div class="item-details">
+                        <h3>Normal Thali</h3>
+                        <p class="item-desc">1 Sabji + Dal + 4 Roti + Salad</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">₹130</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="thali">
+                    <div class="item-details">
+                        <h3>Indian Veg Thali</h3>
+                        <p class="item-desc">Kadhai Paneer + Sabji + Dal Makhni + 2 Lachha Paratha + Rice + Salad</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">₹259</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="thali">
+                    <div class="item-details">
+                        <h3>Veg Deluxe Thali</h3>
+                        <p class="item-desc">Sabji + Paneer + Dal Makhni + 2 Butter Naan / 4 Roti + Rice + Salad + Sweets</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">₹299</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="thali">
+                    <div class="item-details">
+                        <h3>Non-Veg Deluxe Thali</h3>
+                        <p class="item-desc">2pcs Chicken + 1pcs Mutton + 1pcs Fish + 4 Roti / 2 Naan + Rice + Salad + Sweets</p>
+                    </div>
+                    <div class="item-prices">
+                        <span class="price">₹399</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>Welcome to Sunder Dhaba</h2>
+                <p>Located in the heart of the city, Sunder Dhaba has been serving mouth-watering, authentic North Indian vegetarian and non-vegetarian dishes. We take pride in our traditional recipes, rich aromatic spices, and warm hospitality that makes every meal a memorable experience.</p>
+                <div class="features">
+                    <div class="feature-box">
+                        <i class="fas fa-utensils"></i>
+                        <h4>Authentic Taste</h4>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-motorcycle"></i>
+                        <h4>Fast Delivery</h4>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Hygiene First</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <footer id="contact" class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>SUNDER DHABA</h3>
+                <p>Your ultimate destination for authentic Dhaba-style food. Fresh ingredients, rich flavors, and unforgettable taste.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:9717118890">9717118890</a>, <a href="tel:9217165828">9217165828</a></p>
+                <p><i class="fas fa-clock"></i> 11:00 AM - 11:00 PM (All Days)</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Full Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Sunder Dhaba. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script Section -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const menuItems = document.querySelectorAll('.menu-item');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const category = button.getAttribute('data-category');
+
+                    menuItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'flex';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
