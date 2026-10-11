@@ -873,27 +873,61 @@
 
     <!-- Script Section -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const menuItems = document.querySelectorAll('.menu-item');
+        
+document.addEventListener('DOMContentLoaded', async () => {
+  const grid = document.querySelector('.menu-grid');
+  const tabs = document.querySelectorAll('.tab-btn');
 
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
+  function safe(value) {
+    return String(value ?? '').replace(/[&<>"']/g, char => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    })[char]);
+  }
 
-                    const category = button.getAttribute('data-category');
+  try {
+    const response = await fetch('/api/menu');
+    if (!response.ok) throw new Error('Menu load failed');
 
-                    menuItems.forEach(item => {
-                        if (category === 'all' || item.getAttribute('data-category') === category) {
-                            item.style.display = 'flex';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
+    const items = await response.json();
+
+    grid.innerHTML = items.map(item => `
+      <div class="menu-item" data-category="${safe(item.category)}">
+        <div class="item-details">
+          <h3>${safe(item.name)}</h3>
+          <p class="item-desc">${safe(item.description)}</p>
+        </div>
+        <div class="item-prices">
+          ${(item.prices || []).map(price =>
+            `<span class="price">${safe(price)}</span>`
+          ).join('')}
+        </div>
+      </div>
+    `).join('');
+
+    tabs.forEach(button => {
+      button.addEventListener('click', () => {
+        tabs.forEach(tab => tab.classList.remove('active'));
+        button.classList.add('active');
+
+        const category = button.dataset.category;
+
+        document.querySelectorAll('.menu-item').forEach(item => {
+          item.style.display =
+            category === 'all' ||
+            item.dataset.category === category
+              ? 'flex' : 'none';
         });
+      });
+    });
+  } catch (error) {
+    grid.innerHTML =
+      '<p>Menu load nahi hua. Please page refresh karein.</p>';
+  }
+});
     </script>
 </body>
 </html>
