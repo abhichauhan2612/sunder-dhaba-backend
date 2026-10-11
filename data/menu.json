@@ -1,1 +1,325 @@
-
+[
+  {
+    "id": "paneer-1",
+    "name": "Matar Paneer",
+    "category": "paneer",
+    "description": "Fresh green peas and paneer in rich tomato gravy",
+    "prices": [
+      "Q: ₹149",
+      "H: ₹249",
+      "F: ₹349",
+      "1500ml: ₹699"
+    ]
+  },
+  {
+    "id": "paneer-2",
+    "name": "Shahi Paneer",
+    "category": "paneer",
+    "description": "Royal creamy cottage cheese preparation",
+    "prices": [
+      "Q: ₹149",
+      "H: ₹249",
+      "F: ₹349",
+      "1500ml: ₹699"
+    ]
+  },
+  {
+    "id": "paneer-3",
+    "name": "Kadhai Paneer",
+    "category": "paneer",
+    "description": "Spicy paneer cooked with capsicum and freshly ground spices",
+    "prices": [
+      "Q: ₹149",
+      "H: ₹249",
+      "F: ₹349",
+      "1500ml: ₹699"
+    ]
+  },
+  {
+    "id": "paneer-4",
+    "name": "Palak Paneer",
+    "category": "paneer",
+    "description": "Smooth and flavorful spinach gravy with cottage cheese",
+    "prices": [
+      "Q: ₹149",
+      "H: ₹249",
+      "F: ₹349",
+      "1500ml: ₹699"
+    ]
+  },
+  {
+    "id": "paneer-5",
+    "name": "Paneer Lababdar",
+    "category": "paneer",
+    "description": "Cottage cheese in rich, creamy, tomato-onion gravy",
+    "prices": [
+      "Q: ₹149",
+      "H: ₹249",
+      "F: ₹349",
+      "1500ml: ₹699"
+    ]
+  },
+  {
+    "id": "paneer-6",
+    "name": "Paneer Butter Masala",
+    "category": "paneer",
+    "description": "Classic buttery, mildly sweet tomato gravy with soft paneer",
+    "prices": [
+      "Q: ₹149",
+      "H: ₹249",
+      "F: ₹349",
+      "1500ml: ₹699"
+    ]
+  },
+  {
+    "id": "paneer-7",
+    "name": "Paneer Do Pyaza",
+    "category": "paneer",
+    "description": "Paneer cooked with generous amount of onions and spices",
+    "prices": [
+      "Q: ₹159",
+      "H: ₹259",
+      "F: ₹359",
+      "1500ml: ₹709"
+    ]
+  },
+  {
+    "id": "paneer-8",
+    "name": "Tawa Paneer",
+    "category": "paneer",
+    "description": "Semi-dry spiced paneer preparation cooked on tawa",
+    "prices": [
+      "Q: ₹159",
+      "H: ₹259",
+      "F: ₹359",
+      "1500ml: ₹709"
+    ]
+  },
+  {
+    "id": "paneer-9",
+    "name": "Paneer Bhurji",
+    "category": "paneer",
+    "description": "Scrambled cottage cheese with onions, tomatoes and green chillies",
+    "prices": [
+      "Q: ₹199",
+      "H: ₹299",
+      "F: ₹399",
+      "1500ml: ₹799"
+    ]
+  },
+  {
+    "id": "chaap-10",
+    "name": "Chaap Masala",
+    "category": "chaap",
+    "description": "Juicy soya chaap cooked in thick dhaba-style masala gravy",
+    "prices": [
+      "Q: ₹159",
+      "H: ₹259",
+      "F: ₹359",
+      "1500ml: ₹709"
+    ]
+  },
+  {
+    "id": "chaap-11",
+    "name": "Kadhai Chaap",
+    "category": "chaap",
+    "description": "Soya chaap tossed with capsicum, onions and freshly ground spices",
+    "prices": [
+      "Q: ₹159",
+      "H: ₹259",
+      "F: ₹359",
+      "1500ml: ₹709"
+    ]
+  },
+  {
+    "id": "chaap-12",
+    "name": "Chaap Lababdar",
+    "category": "chaap",
+    "description": "Rich and velvety soya chaap delicacy",
+    "prices": [
+      "Q: ₹169",
+      "H: ₹269",
+      "F: ₹369",
+      "1500ml: ₹719"
+    ]
+  },
+  {
+    "id": "chicken-13",
+    "name": "Butter Chicken",
+    "category": "chicken",
+    "description": "Tender chicken in rich, creamy tomato and butter gravy",
+    "prices": [
+      "Q: ₹249",
+      "H: ₹429",
+      "F: ₹719"
+    ]
+  },
+  {
+    "id": "chicken-14",
+    "name": "Kadhai Chicken",
+    "category": "chicken",
+    "description": "Spicy chicken preparation with bell peppers and whole spices",
+    "prices": [
+      "Q: ₹249",
+      "H: ₹429",
+      "F: ₹719"
+    ]
+  },
+  {
+    "id": "chicken-15",
+    "name": "Chicken Rara",
+    "category": "chicken",
+    "description": "Chicken pieces cooked with spicy minced meat gravy",
+    "prices": [
+      "Q: ₹269",
+      "H: ₹449",
+      "F: ₹719"
+    ]
+  },
+  {
+    "id": "chicken-16",
+    "name": "Tawa Chicken",
+    "category": "chicken",
+    "description": "Semi-dry chicken roasted on hot iron tawa",
+    "prices": [
+      "Q: ₹249",
+      "H: ₹429",
+      "F: ₹719"
+    ]
+  },
+  {
+    "id": "chicken-17",
+    "name": "Chicken Lababdar",
+    "category": "chicken",
+    "description": "Rich and creamy North Indian style chicken gravy",
+    "prices": [
+      "Q: ₹269",
+      "H: ₹449",
+      "F: ₹719"
+    ]
+  },
+  {
+    "id": "chicken-18",
+    "name": "Chicken Do Pyaza",
+    "category": "chicken",
+    "description": "Chicken cooked with abundant crisp onions and aromatic spices",
+    "prices": [
+      "Q: ₹269",
+      "H: ₹449",
+      "F: ₹719"
+    ]
+  },
+  {
+    "id": "starters-19",
+    "name": "Tandoori Chicken",
+    "category": "starters",
+    "description": "Classic charcoal-grilled chicken marinated in yogurt and spices",
+    "prices": [
+      "H: ₹239",
+      "F: ₹429"
+    ]
+  },
+  {
+    "id": "starters-20",
+    "name": "Afghani Chicken",
+    "category": "starters",
+    "description": "Creamy, mild, and succulent grilled chicken",
+    "prices": [
+      "H: ₹239",
+      "F: ₹429"
+    ]
+  },
+  {
+    "id": "starters-21",
+    "name": "Chicken Tikka",
+    "category": "starters",
+    "description": "Boneless chicken chunks grilled in tandoor",
+    "prices": [
+      "H: ₹209",
+      "F: ₹389"
+    ]
+  },
+  {
+    "id": "starters-22",
+    "name": "Malai Chaap (Veg Starter)",
+    "category": "starters",
+    "description": "Tender soya chaap marinated in cream, cheese and mild spices",
+    "prices": [
+      "H: ₹109",
+      "F: ₹199"
+    ]
+  },
+  {
+    "id": "starters-23",
+    "name": "Paneer Tikka (Veg Starter)",
+    "category": "starters",
+    "description": "Marinated cottage cheese cubes charred to perfection",
+    "prices": [
+      "H: ₹109",
+      "F: ₹199"
+    ]
+  },
+  {
+    "id": "rice-24",
+    "name": "Plain Rice / Jeera Rice",
+    "category": "rice",
+    "description": "Steamed basmati rice / cumin tempered rice",
+    "prices": [
+      "₹70 - ₹140"
+    ]
+  },
+  {
+    "id": "rice-25",
+    "name": "Tandoori Roti / Butter Roti",
+    "category": "rice",
+    "description": "Freshly baked whole wheat bread",
+    "prices": [
+      "₹11 - ₹13"
+    ]
+  },
+  {
+    "id": "rice-26",
+    "name": "Butter Naan / Plain Naan",
+    "category": "rice",
+    "description": "Soft refined flour bread baked in tandoor",
+    "prices": [
+      "₹20 - ₹25"
+    ]
+  },
+  {
+    "id": "thali-27",
+    "name": "Normal Thali",
+    "category": "thali",
+    "description": "1 Sabji + Dal + 4 Roti + Salad",
+    "prices": [
+      "₹130"
+    ]
+  },
+  {
+    "id": "thali-28",
+    "name": "Indian Veg Thali",
+    "category": "thali",
+    "description": "Kadhai Paneer + Sabji + Dal Makhni + 2 Lachha Paratha + Rice + Salad",
+    "prices": [
+      "₹259"
+    ]
+  },
+  {
+    "id": "thali-29",
+    "name": "Veg Deluxe Thali",
+    "category": "thali",
+    "description": "Sabji + Paneer + Dal Makhni + 2 Butter Naan / 4 Roti + Rice + Salad + Sweets",
+    "prices": [
+      "₹299"
+    ]
+  },
+  {
+    "id": "thali-30",
+    "name": "Non-Veg Deluxe Thali",
+    "category": "thali",
+    "description": "2pcs Chicken + 1pcs Mutton + 1pcs Fish + 4 Roti / 2 Naan + Rice + Salad + Sweets",
+    "prices": [
+      "₹399"
+    ]
+  }
+]
